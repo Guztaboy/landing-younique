@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Download } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 // Cyan/Electric Blue Palette
 const cyanColors = ['#00F0FF', '#00D1FF', '#00A3FF', '#0070FF', '#4D00FF'];
@@ -41,7 +41,7 @@ export default function AntigravityHero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     const currentPhrase = typewriterPhrases[phraseIndex];
     
     if (isDeleting) {
@@ -228,34 +228,7 @@ export default function AntigravityHero() {
   }, []);
 
   // Animation Variants
-  const titleContainerVars = {
-    hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.04 }
-    }
-  };
 
-  const wordVars = {
-    hidden: { y: 24, filter: 'blur(8px)', opacity: 0 },
-    visible: {
-      y: 0,
-      filter: 'blur(0px)',
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 1, 0.5, 1]
-      }
-    }
-  };
-
-  const buttonGroupVars = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { delay: 0.8, duration: 0.8, ease: [0.25, 1, 0.5, 1] }
-    }
-  };
 
   return (
     <main style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', backgroundColor: '#050505' }}>
@@ -408,9 +381,9 @@ export default function AntigravityHero() {
 
         {/* Bottom Actions */}
         <motion.div
-          variants={buttonGroupVars}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
           style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}
         >
           <motion.button
