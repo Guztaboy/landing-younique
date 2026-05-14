@@ -370,11 +370,7 @@ export default function AntigravityHero() {
             display: 'flex', 
             alignItems: 'center', 
             gap: '8px', 
-            marginBottom: '32px',
-            backgroundColor: 'rgba(255, 255, 255, 0.7)',
-            padding: '8px 16px',
-            borderRadius: '100px',
-            backdropFilter: 'blur(10px)'
+            marginBottom: '32px'
           }}
         >
           <img 
