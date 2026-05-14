@@ -258,7 +258,13 @@ export default function AntigravityHero() {
   };
 
   return (
-    <main style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+    <main style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', backgroundColor: '#050505' }}>
+      <motion.div
+        initial={{ clipPath: 'circle(0% at 50% 50%)' }}
+        animate={{ clipPath: 'circle(150% at 50% 50%)' }}
+        transition={{ duration: 2.5, ease: [0.25, 1, 0.5, 1] }}
+        style={{ position: 'absolute', inset: 0, backgroundColor: '#fff', overflow: 'hidden' }}
+      >
       <div className="noise-overlay" />
       
       {/* Animated Background Glow Gradient Layer */}
@@ -357,23 +363,9 @@ export default function AntigravityHero() {
       }}>
         {/* Center Sub-Logo/Chip */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 10, boxShadow: "0px 0px 0px rgba(0, 240, 255, 0)" }}
-          animate={{ 
-            opacity: 1, 
-            scale: 1, 
-            y: 0,
-            boxShadow: [
-              "0px 4px 10px rgba(0,0,0,0.02), 0px 0px 0px rgba(0, 240, 255, 0)",
-              "0px 10px 30px rgba(0,0,0,0.08), 0px 0px 25px rgba(0, 240, 255, 0.25)",
-              "0px 4px 10px rgba(0,0,0,0.02), 0px 0px 0px rgba(0, 240, 255, 0)"
-            ]
-          }}
-          transition={{ 
-            opacity: { duration: 0.6, ease: "easeOut" },
-            scale: { duration: 0.6, ease: "easeOut" },
-            y: { duration: 0.6, ease: "easeOut" },
-            boxShadow: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-          }}
+          initial={{ opacity: 0, scale: 0.95, y: 10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           style={{ 
             display: 'flex', 
             alignItems: 'center', 
@@ -396,16 +388,7 @@ export default function AntigravityHero() {
         </motion.div>
 
         {/* The Epic Headline Typewriter Loop */}
-        <motion.h1
-          initial={{ textShadow: "0px 0px 0px rgba(0, 240, 255, 0)" }}
-          animate={{
-            textShadow: [
-              "0px 0px 0px rgba(0, 240, 255, 0)",
-              "0px 8px 30px rgba(0, 240, 255, 0.3)",
-              "0px 0px 0px rgba(0, 240, 255, 0)"
-            ]
-          }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        <h1
           style={{
             maxWidth: '960px',
             fontSize: 'clamp(2.5rem, 6.2vw, 4.8rem)',
@@ -425,7 +408,7 @@ export default function AntigravityHero() {
             transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
             style={{ display: 'inline-block', width: '4px', backgroundColor: '#202124', marginLeft: '8px', verticalAlign: 'middle', height: '0.85em' }}
           />
-        </motion.h1>
+        </h1>
 
         {/* Bottom Actions */}
         <motion.div
@@ -477,6 +460,7 @@ export default function AntigravityHero() {
           </motion.button>
         </motion.div>
       </div>
+      </motion.div>
     </main>
   );
 }
