@@ -357,10 +357,33 @@ export default function AntigravityHero() {
       }}>
         {/* Center Sub-Logo/Chip */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '32px' }}
+          initial={{ opacity: 0, scale: 0.95, y: 10, boxShadow: "0px 0px 0px rgba(0, 240, 255, 0)" }}
+          animate={{ 
+            opacity: 1, 
+            scale: 1, 
+            y: 0,
+            boxShadow: [
+              "0px 4px 10px rgba(0,0,0,0.02), 0px 0px 0px rgba(0, 240, 255, 0)",
+              "0px 10px 30px rgba(0,0,0,0.08), 0px 0px 25px rgba(0, 240, 255, 0.25)",
+              "0px 4px 10px rgba(0,0,0,0.02), 0px 0px 0px rgba(0, 240, 255, 0)"
+            ]
+          }}
+          transition={{ 
+            opacity: { duration: 0.6, ease: "easeOut" },
+            scale: { duration: 0.6, ease: "easeOut" },
+            y: { duration: 0.6, ease: "easeOut" },
+            boxShadow: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+          }}
+          style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '8px', 
+            marginBottom: '32px',
+            backgroundColor: 'rgba(255, 255, 255, 0.7)',
+            padding: '8px 16px',
+            borderRadius: '100px',
+            backdropFilter: 'blur(10px)'
+          }}
         >
           <img 
             src="/logo.png" 
@@ -373,7 +396,16 @@ export default function AntigravityHero() {
         </motion.div>
 
         {/* The Epic Headline Typewriter Loop */}
-        <h1
+        <motion.h1
+          initial={{ textShadow: "0px 0px 0px rgba(0, 240, 255, 0)" }}
+          animate={{
+            textShadow: [
+              "0px 0px 0px rgba(0, 240, 255, 0)",
+              "0px 8px 30px rgba(0, 240, 255, 0.3)",
+              "0px 0px 0px rgba(0, 240, 255, 0)"
+            ]
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           style={{
             maxWidth: '960px',
             fontSize: 'clamp(2.5rem, 6.2vw, 4.8rem)',
@@ -393,7 +425,7 @@ export default function AntigravityHero() {
             transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
             style={{ display: 'inline-block', width: '4px', backgroundColor: '#202124', marginLeft: '8px', verticalAlign: 'middle', height: '0.85em' }}
           />
-        </h1>
+        </motion.h1>
 
         {/* Bottom Actions */}
         <motion.div
