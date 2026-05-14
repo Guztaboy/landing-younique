@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import logoImg from '../assets/logo.png';
 
 // Cyan/Electric Blue Palette
 const cyanColors = ['#00F0FF', '#00D1FF', '#00A3FF', '#0070FF', '#4D00FF'];
@@ -295,7 +296,7 @@ export default function AntigravityHero() {
           {/* Logo */}
           <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: '#202124' }}>
             <img 
-              src="/logo.png" 
+              src={logoImg} 
               alt="Younique Logo" 
               style={{ width: '32px', height: 'auto', objectFit: 'contain' }} 
             />
@@ -347,7 +348,7 @@ export default function AntigravityHero() {
           }}
         >
           <img 
-            src="/logo.png" 
+            src={logoImg} 
             alt="Younique Logo" 
             style={{ width: '32px', height: 'auto', objectFit: 'contain' }} 
           />
